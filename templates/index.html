@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Page</title>
+    <style>
+          body {
+            background-color: #9ed1d1;
+            font-family: Arial, sans-serif;
+        }
+       
+       
+.container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-image: linear-gradient(to bottom, #e6f2ff, #ffffff);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            perspective: 1000px;
+        }
+        .form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+        form {
+    display: block;
+    margin-top: 0em;
+}
+.results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+.link-box {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease-in-out;
+            background-color: #fff;
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+        }
+.link-box a {
+    display: block;
+    color: #337ab7;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+        
+        div {
+            display: block;
+        }
+       
+        
+        
+        
+        
+      
+        </style>
+        
+  </head>
+<body >
+    <div class="container">
+       <div class="form">
+           <form method="POST">
+               {{ form.hidden_tag() }} {{ form.search.label }} {{ form.search() }} {{
+               form.submit() }}
+           </form>
+        </div>
+    
+<div class="results">
+    <div class = "link-box" >
+        {% for result in results %}
+        <a href="{{ result['Question Link'] }}">{{ result['Question Link'] }}</a>
+        <p>Score: {{ result['Score'] }}</p>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>
